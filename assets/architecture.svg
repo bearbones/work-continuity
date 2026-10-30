@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1040" viewBox="0 0 1320 1040" role="img" aria-labelledby="title desc">
+<title id="title">Work Continuity proposed architecture</title>
+<desc id="desc">Existing sources feed an evidence archive and revision ledger. Rebuildable search projections support an application service and small client views. Optional graph backends do not own authoritative work state.</desc>
+<rect width="1320" height="1040" fill="#f4f5f2"/>
+<text x="48" y="63" font-family="DejaVu Sans, sans-serif" font-size="36" font-weight="700" fill="#20343d">Work Continuity</text>
+<text x="49" y="98" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" fill="#20343d">Evidence stays durable. Interpretations stay revisable. Attention stays small.</text>
+<rect x="48" y="131" width="1224" height="105" rx="14" fill="#ffffff" stroke="#bbcacb" stroke-width="2"/>
+<text x="72" y="172" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Existing sources retain authority</text>
+<text x="72" y="206" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Work trackers  ·  Meeting notes  ·  Conversations  ·  Pull requests  ·  Agent sessions</text>
+<path d="M660,236 L660,270" stroke="#557b81" stroke-width="3" fill="none"/><path d="M660,270 l-7,-10 h14 z" fill="#557b81"/>
+<rect x="48" y="270" width="1224" height="135" rx="14" fill="#e4eeea" stroke="#7a9c91" stroke-width="2"/>
+<text x="72" y="311" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Protected source archive + canonical revision ledger</text>
+<text x="72" y="345" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Source revisions and evidence spans  ·  Entities and claims  ·  Commitments and explicit goals</text>
+<text x="72" y="374" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Authority rules, corrections, time history, derivation links, and ingestion receipts</text>
+<path d="M350,405 L350,444" stroke="#557b81" stroke-width="3" fill="none"/><path d="M350,444 l-7,-10 h14 z" fill="#557b81"/>
+<path d="M970,405 L970,444" stroke="#557b81" stroke-width="3" fill="none"/><path d="M970,444 l-7,-10 h14 z" fill="#557b81"/>
+<rect x="48" y="444" width="600" height="150" rx="14" fill="#ffffff" stroke="#bbcacb" stroke-width="2"/>
+<text x="72" y="485" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Baseline processing and retrieval</text>
+<text x="72" y="519" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Scoped extraction and episode reconstruction</text>
+<text x="72" y="548" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Lexical + vector search + explicit work links</text>
+<text x="72" y="577" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Versioned summaries and source drill-down</text>
+<rect x="672" y="444" width="600" height="150" rx="14" fill="#edf0f7" stroke="#9eabc4" stroke-width="2"/>
+<text x="696" y="485" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Optional rebuildable projections</text>
+<text x="696" y="519" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Graphiti: incremental temporal associations</text>
+<text x="696" y="548" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">GraphRAG: scoped retrospective snapshots</text>
+<text x="696" y="577" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Adopt each only after comparison with baseline</text>
+<path d="M350,594 L350,634" stroke="#557b81" stroke-width="3" fill="none"/><path d="M350,634 l-7,-10 h14 z" fill="#557b81"/>
+<path d="M970,594 L970,634" stroke="#557b81" stroke-width="3" fill="none"/><path d="M970,634 l-7,-10 h14 z" fill="#557b81"/>
+<rect x="48" y="634" width="1224" height="145" rx="14" fill="#e6eef2" stroke="#7c9bab" stroke-width="2"/>
+<text x="72" y="675" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Application service owns decisions</text>
+<text x="72" y="709" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Authorization  ·  Authority  ·  Historical query mode  ·  Evidence assembly</text>
+<text x="72" y="738" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Attention selection and suppression  ·  Correction propagation  ·  Freshness</text>
+<text x="72" y="767" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">External writes are a separate, later capability with authorization and receipts</text>
+<path d="M660,779 L660,819" stroke="#557b81" stroke-width="3" fill="none"/><path d="M660,819 l-7,-10 h14 z" fill="#557b81"/>
+<rect x="48" y="819" width="1224" height="128" rx="14" fill="#ffffff" stroke="#bbcacb" stroke-width="2"/>
+<text x="72" y="860" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" fill="#20343d">Client shows the relevant slice</text>
+<text x="72" y="894" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Resume  ·  Attention digest  ·  Meeting preparation  ·  Goal-linked reflection</text>
+<text x="72" y="923" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Why this matters, source evidence, uncertainty, and quick correction</text>
+<text x="49" y="1000" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" fill="#20343d">Design only • First pilot: one person, one project, two sources, read-only.</text>
+</svg>

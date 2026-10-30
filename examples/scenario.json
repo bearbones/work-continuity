@@ -1,0 +1,212 @@
+{
+  "schema_version": "scenario-1",
+  "synthetic": true,
+  "description": "Invented records for a build investigation. These are replay expectations, not generated evaluation results.",
+  "scope_id": "synthetic-work",
+  "authority": {
+    "work-17.status": "tracker:work-17",
+    "work-17.owner": "tracker:work-17",
+    "pr-42.merge_state": "code:pr-42"
+  },
+  "events": [
+    {
+      "id": "e1",
+      "source_key": "notes:meeting-1",
+      "revision": "1",
+      "kind": "meeting_note",
+      "actor_role": "human",
+      "occurred_at": "2026-07-01T16:00:00Z",
+      "observed_at": "2026-07-01T16:10:00Z",
+      "origin_family_id": "o1",
+      "content": "Morgan agreed to investigate the flaky build. Completion includes a fix and a successful rollout check.",
+      "links": ["work-17"],
+      "source_url": "https://example.invalid/notes/meeting-1"
+    },
+    {
+      "id": "e2",
+      "source_key": "tracker:work-17",
+      "revision": "1",
+      "kind": "work_snapshot",
+      "actor_role": "system",
+      "occurred_at": "2026-07-01T17:00:00Z",
+      "observed_at": "2026-07-01T17:01:00Z",
+      "origin_family_id": "o2",
+      "content": "Investigate flaky build; owner Morgan; active. Acceptance: fix merged and rollout check successful.",
+      "fields": {"owner": "Morgan", "status": "active", "acceptance": ["fix merged", "rollout check successful"]},
+      "links": ["work-17"],
+      "source_url": "https://example.invalid/tracker/work-17"
+    },
+    {
+      "id": "e3",
+      "source_key": "session:turn-3",
+      "revision": "1",
+      "kind": "assistant_message",
+      "actor_role": "agent",
+      "occurred_at": "2026-07-02T10:00:00Z",
+      "observed_at": "2026-07-02T10:01:00Z",
+      "origin_family_id": "o3",
+      "content": "The flaky build is fixed and validation passed.",
+      "links": ["work-17", "run-7"]
+    },
+    {
+      "id": "e4",
+      "source_key": "session:tool-result-4",
+      "revision": "1",
+      "kind": "tool_result",
+      "actor_role": "tool",
+      "occurred_at": "2026-07-02T10:02:00Z",
+      "observed_at": "2026-07-02T10:03:00Z",
+      "origin_family_id": "o4",
+      "content": "run-7: rollout validation exited 1. Environment unavailable; successful rollout not established.",
+      "fields": {"exit_code": 1, "outcome": "environment_unavailable"},
+      "links": ["work-17", "run-7"]
+    },
+    {
+      "id": "e5",
+      "source_key": "code:pr-42",
+      "revision": "1",
+      "kind": "pr_snapshot",
+      "actor_role": "system",
+      "occurred_at": "2026-07-03T11:00:00Z",
+      "observed_at": "2026-07-03T11:01:00Z",
+      "origin_family_id": "o5",
+      "content": "PR 42 implementing the build fix merged. No rollout result is recorded here.",
+      "fields": {"merge_state": "merged", "head_revision": "synthetic-head-a"},
+      "links": ["pr-42", "work-17"],
+      "source_url": "https://example.invalid/code/pr-42"
+    },
+    {
+      "id": "e6",
+      "source_key": "user:correction-1",
+      "revision": "1",
+      "kind": "user_correction",
+      "actor_role": "user",
+      "occurred_at": "2026-07-03T12:00:00Z",
+      "observed_at": "2026-07-03T12:00:00Z",
+      "origin_family_id": "o6",
+      "content": "Reject the inferred completion. The fix merged, but rollout validation is still outstanding. Do not re-infer completion from this PR alone.",
+      "targets": ["work-17"],
+      "evidence_refs": ["e4", "e5"],
+      "links": ["work-17"]
+    },
+    {
+      "id": "e7",
+      "source_key": "tracker:work-17",
+      "revision": "2",
+      "kind": "work_snapshot",
+      "actor_role": "system",
+      "occurred_at": "2026-07-04T09:00:00Z",
+      "observed_at": "2026-07-08T09:00:00Z",
+      "origin_family_id": "o7",
+      "content": "Ownership transferred to Riley effective July 4. Waiting for the rollout environment.",
+      "fields": {"owner": "Riley", "status": "waiting", "owner_effective_at": "2026-07-04T09:00:00Z"},
+      "supersedes_event": "e2",
+      "links": ["work-17"],
+      "source_url": "https://example.invalid/tracker/work-17"
+    },
+    {
+      "id": "e8",
+      "source_key": "summary:copied-claim",
+      "revision": "1",
+      "kind": "derived_summary",
+      "actor_role": "agent",
+      "occurred_at": "2026-07-05T10:00:00Z",
+      "observed_at": "2026-07-08T10:00:00Z",
+      "origin_family_id": "o3",
+      "content": "The assistant previously reported that the build was fixed and validation passed.",
+      "derived_from": ["e3"],
+      "links": ["work-17"]
+    },
+    {
+      "id": "e9",
+      "source_key": "tracker:work-17",
+      "revision": "3",
+      "kind": "work_snapshot",
+      "actor_role": "system",
+      "occurred_at": "2026-07-09T15:00:00Z",
+      "observed_at": "2026-07-09T15:01:00Z",
+      "origin_family_id": "o9",
+      "content": "Tracker marks the investigation completed after Riley recorded a successful rollout check. This snapshot reports the outcome; the underlying check receipt is not included in this fixture.",
+      "fields": {"owner": "Riley", "status": "completed"},
+      "supersedes_event": "e7",
+      "links": ["work-17"],
+      "source_url": "https://example.invalid/tracker/work-17"
+    }
+  ],
+  "cases": [
+    {
+      "id": "q1",
+      "question": "Was successful rollout validation established?",
+      "world_at": "2026-07-02T11:00:00Z",
+      "known_at": "2026-07-02T11:00:00Z",
+      "evidence_refs": ["e2", "e3", "e4"],
+      "expected": "No. The agent reported success, but the tool observation did not establish successful rollout; the tracker remains active.",
+      "forbidden": ["Validation passed", "Investigation completed"]
+    },
+    {
+      "id": "q2",
+      "question": "What should the resumption card say after the PR merges?",
+      "world_at": "2026-07-03T13:00:00Z",
+      "known_at": "2026-07-03T13:00:00Z",
+      "evidence_refs": ["e2", "e4", "e5", "e6"],
+      "expected": "Fix merged; rollout verification outstanding. Suggest checking environment availability. Preserve the active tracker state and correction.",
+      "forbidden": ["Automatically close the investigation", "Automatically rerun or dispatch work"]
+    },
+    {
+      "id": "q3",
+      "question": "Who did the assistant have recorded as owner on July 5?",
+      "world_at": "2026-07-05T12:00:00Z",
+      "known_at": "2026-07-05T12:00:00Z",
+      "evidence_refs": ["e2"],
+      "excluded_evidence_refs": ["e7", "e8", "e9"],
+      "expected": "Morgan, based on the last observed tracker revision; this is a historical knowledge answer with stale-source qualification.",
+      "forbidden": ["Riley was already known to the assistant"]
+    },
+    {
+      "id": "q4",
+      "question": "Using what is known on July 8, who owned the work on July 5?",
+      "world_at": "2026-07-05T12:00:00Z",
+      "known_at": "2026-07-08T12:00:00Z",
+      "evidence_refs": ["e7"],
+      "expected": "Riley, according to the late-imported authoritative handoff effective July 4. The assistant learned this on July 8.",
+      "forbidden": ["Ownership changed on July 8"]
+    },
+    {
+      "id": "q5",
+      "question": "Does the imported summary independently confirm completion?",
+      "world_at": "2026-07-08T12:00:00Z",
+      "known_at": "2026-07-08T12:00:00Z",
+      "evidence_refs": ["e3", "e4", "e6", "e7", "e8"],
+      "expected": "No. It derives from the earlier agent claim and shares its origin family. Preserve the correction and waiting tracker state.",
+      "forbidden": ["Two independent sources confirm completion"]
+    },
+    {
+      "id": "q6",
+      "question": "What is the current status after the final tracker update?",
+      "world_at": "2026-07-09T16:00:00Z",
+      "known_at": "2026-07-09T16:00:00Z",
+      "evidence_refs": ["e9"],
+      "expected": "The designated tracker marks it completed. The fixture contains the tracker report, not the underlying rollout receipt. The earlier correction does not prohibit completion based on new authoritative evidence.",
+      "forbidden": ["The assistant independently verified the rollout"]
+    },
+    {
+      "id": "q7",
+      "question": "What was the measured rollout duration?",
+      "world_at": "2026-07-09T16:00:00Z",
+      "known_at": "2026-07-09T16:00:00Z",
+      "evidence_refs": ["e9"],
+      "expected": "Unknown from the available records; do not invent a duration.",
+      "forbidden": ["Any fabricated numerical duration"]
+    },
+    {
+      "id": "q8",
+      "question": "What happens if the PR merge event is delivered twice after the resumption card is snoozed?",
+      "world_at": "2026-07-03T14:00:00Z",
+      "known_at": "2026-07-03T14:00:00Z",
+      "evidence_refs": ["e5", "e6"],
+      "setup": {"duplicate_event": "e5", "snoozed_until": "2026-07-04T14:00:00Z"},
+      "expected": "No duplicate revision or notification. Keep the snooze and underlying task state unchanged.",
+      "forbidden": ["Notify again because delivery was repeated", "Complete the task because the card was snoozed"]
+    }
+  ]
+}
